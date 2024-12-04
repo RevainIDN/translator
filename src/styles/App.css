@@ -6,5 +6,27 @@
 }
 
 body {
-  background: top / contain no-repeat url(/hero_img.jpg);
+  background: top / cover no-repeat url(/hero_img.jpg);
+}
+
+.translator {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  margin-top: 10%;
+}
+
+.area {
+  width: 50%;
+  padding: 20px;
+  border: 2px #4D5562 solid;
+  border-radius: 24px;
+}
+
+.enteredArea {
+  background-color: #212936cc;
+}
+
+.translatedArea {
+  background-color: #121826cc;
 }
