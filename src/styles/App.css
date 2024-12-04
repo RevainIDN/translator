@@ -24,6 +24,7 @@ body {
 }
 
 .enteredArea {
+  position: relative;
   background-color: #212936cc;
 }
 

@@ -1,0 +1,26 @@
+.translate-btn {
+	position: absolute;
+	width: 150px;
+	bottom: 30px;
+	right: 30px;
+	text-align: end;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 2.2;
+	color: #F9FAFB;
+	background-color: #3662E3;
+	border: 1px #7CA9F3 solid;
+	border-radius: 12px;
+	padding: 6px 24px;
+	overflow: hidden;
+}
+
+.translate-btn::before {
+	content: '';
+	position: absolute;
+	width: 24px;
+	height: 24px;
+	bottom: 12px;
+	right: 100px;
+	background: url(/Sort_alfa.svg);
+}
