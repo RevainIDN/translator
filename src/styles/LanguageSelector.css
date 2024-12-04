@@ -2,6 +2,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	padding-bottom: 15px;
+	border-bottom: 2px #4D5562 solid;
 }
 
 .language-list {
@@ -23,11 +25,14 @@
 	padding: 6px 12px;
 }
 
-.reverse-btn {
+.option-btn {
 	width: 28px;
 	height: 28px;
 	border: 3px #4D5562 solid;
 	border-radius: 12px;
 	padding: 16px;
+}
+
+.reverse-btn {
 	background: center / 24px no-repeat url(/Horizontal_top_left_main.svg);
 }

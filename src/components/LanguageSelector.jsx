@@ -10,7 +10,7 @@ export default function LanguageSelector({ type }) {
 					<li className='language-item'><button className='language-btn'>French</button></li>
 
 				</ul>
-				{type === 'target' && <button className='reverse-btn'></button>}
+				{type === 'target' && <button className='option-btn reverse-btn'></button>}
 			</div>
 		</>
 	)
