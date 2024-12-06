@@ -7,12 +7,15 @@ import languages from './languagesArray'
 
 export default function App() {
   const [sourceLanguage, setSourceLanguage] = useState('');
+  const [targetLanguage, setTargetLanguage] = useState('');
+  const [originatlText, setOriginatlText] = useState('');
+  const [translatedText, setTranslatedText] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSource = (event) => {
     const value = event.target.value;
 
-    setSourceLanguage(value);
-    console.log(sourceLanguage)
+    setOriginatlText(value);
   }
 
   return (
@@ -21,11 +24,11 @@ export default function App() {
         <div className='area enteredArea'>
           <LanguageSelector type={'sourse'} languages={languages} />
           <TextArea canWrite={true} numLetters={true} handleSource={handleSource} />
-          <TranslateButton />
+          <TranslateButton originatlText={originatlText} languages={languages} setTranslatedText={setTranslatedText} translatedText={translatedText} />
         </div>
         <div className='area translatedArea'>
           <LanguageSelector type={'target'} languages={languages} />
-          <TextArea canWrite={false} />
+          <TextArea canWrite={false} translatedText={translatedText} />
         </div>
       </div>
     </>
