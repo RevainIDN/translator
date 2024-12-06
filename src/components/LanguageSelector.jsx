@@ -2,8 +2,9 @@ import { use } from 'react';
 import '../styles/LanguageSelector.css'
 import { useState, useEffect, useRef } from 'react'
 
-export default function LanguageSelector({ type, languages, selectedLanguage, handleLanguageChange }) {
+export default function LanguageSelector({ type, languages, selectedLanguage, setSelecteedLanguage, handleLanguageChange }) {
 	const [filteredText, setFilteredText] = useState('');
+	const [activeLanguage, setActiveLanguage] = useState(type === 'sourse' ? 'en' : 'fr');
 
 	const dropdownRef = useRef(null);
 	const buttonRef = useRef(null);
@@ -18,6 +19,11 @@ export default function LanguageSelector({ type, languages, selectedLanguage, ha
 
 		setFilteredText(value)
 	}
+
+	const handleButtonClick = (buttonId, languageCode, type) => {
+		setActiveLanguage(buttonId);
+		handleLanguageChange(languageCode, type);
+	};
 
 	const filteredLanguages = languages.filter(language => {
 		return language.language.toLowerCase().includes(filteredText.toLowerCase())
@@ -59,23 +65,19 @@ export default function LanguageSelector({ type, languages, selectedLanguage, ha
 		<>
 			<div ref={dropdownRef} className='language-selector'>
 				<ul className='language-list'>
-					{type === 'sourse' && <li className='language-item'><button className='language-btn'>Detect Language</button></li>}
-					{type === 'sourse'
-						? <li className='language-item'><button className='language-btn active'>English</button></li>
-						: <li className='language-item'><button className='language-btn active'>English</button></li>}
-					{type === 'sourse'
-						? <li className='language-item'><button className='language-btn'>French</button></li>
-						: <li className='language-item'><button className='language-btn'>French</button></li>}
-					<li className='language-item'><button className='language-btn dropdown-btn' ref={buttonRef}>{languages.find(language => language.code === selectedLanguage).language}</button></li>
+					{type === 'sourse' && <li className='language-btn'><button className={`language-btn ${activeLanguage === 'auto' ? 'active' : ''}`} onClick={() => handleButtonClick('auto', 'auto', type)}>Detect Language</button></li>}
+					<li className='language-item'><button className={`language-btn ${activeLanguage === 'en' ? 'active' : ''}`} onClick={() => handleButtonClick('en', 'en', type)}>English</button></li>
+					<li className='language-item'><button className={`language-btn ${activeLanguage === 'fr' ? 'active' : ''}`} onClick={() => handleButtonClick('fr', 'fr', type)}>French</button></li>
+					<li className='language-item'><button className='language-btn dropdown-btn' ref={buttonRef}>{languages.find(language => language.code === selectedLanguage)?.language}</button></li>
 				</ul>
 				<ul ref={listRef} className='dropdown-list'>
 					<li className='dropdown-input'><input className='filter-input' placeholder='Find language' onChange={handleFilter} type="text" /></li>
 					<li className='dropdown-items'><ul className='dropdown-languages'>
 						{filteredLanguages.length > 0
-							? filteredLanguages.map((language) => (
+							? filteredLanguages.slice(0, languages.length - 1).map((language) => (
 								<li className='dropdown-item' key={language.id} onClick={() => handleLanguageChange(language.code, type)}>{language.language}</li>
 							))
-							: languages.map((language) => (
+							: languages.slice(0, languages.length - 1).map((language) => (
 								<li className='dropdown-item' key={language.id} onClick={() => handleLanguageChange(language.code, type)}>{language.language}</li>
 							))}
 

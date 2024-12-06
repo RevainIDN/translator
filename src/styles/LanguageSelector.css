@@ -5,6 +5,7 @@
 	justify-content: space-between;
 	padding-bottom: 15px;
 	border-bottom: 2px #4D5562 solid;
+	line-height: 2.2;
 }
 
 .language-list {
@@ -23,7 +24,7 @@
 	background-color: #4D5562;
 	border-radius: 10px;
 	color: #F9FAFB;
-	padding: 6px 12px;
+	padding: 0 12px;
 }
 
 .dropdown-btn {

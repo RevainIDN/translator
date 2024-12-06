@@ -4,16 +4,14 @@ import LanguageSelector from './LanguageSelector'
 import TextArea from './TextArea'
 import TranslateButton from './TranslateButton'
 import languages from './languagesArray'
-import { use } from 'react'
 
 export default function App() {
 
   const [sourceLanguage, setSourceLanguage] = useState('en');
-  const [targetLanguage, setTargetLanguage] = useState('es');
-
+  const [targetLanguage, setTargetLanguage] = useState('fr');
+  console.log(sourceLanguage, targetLanguage)
   const [originatlText, setOriginatlText] = useState('');
   const [translatedText, setTranslatedText] = useState('');
-
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSource = (event) => {
@@ -38,19 +36,34 @@ export default function App() {
             type={'sourse'}
             languages={languages}
             selectedLanguage={sourceLanguage}
+            setSelecteedLanguage={setSourceLanguage}
             handleLanguageChange={handleLanguageChange}
           />
-          <TextArea canWrite={true} numLetters={true} handleSource={handleSource} />
-          <TranslateButton originatlText={originatlText} languages={languages} setTranslatedText={setTranslatedText} translatedText={translatedText} />
+          <TextArea
+            canWrite={true}
+            numLetters={true}
+            handleSource={handleSource}
+            originatlText={originatlText.length}
+          />
+          <TranslateButton
+            originatlText={originatlText}
+            languages={languages}
+            setTranslatedText={setTranslatedText}
+            translatedText={translatedText}
+          />
         </div>
         <div className='area translatedArea'>
           <LanguageSelector
             type={'target'}
             languages={languages}
             selectedLanguage={targetLanguage}
+            setSelecteedLanguage={setTargetLanguage}
             handleLanguageChange={handleLanguageChange}
           />
-          <TextArea canWrite={false} translatedText={translatedText} />
+          <TextArea
+            canWrite={false}
+            translatedText={translatedText}
+          />
         </div>
       </div>
     </>
