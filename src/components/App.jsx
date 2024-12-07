@@ -7,8 +7,8 @@ import languages from './languagesArray'
 
 export default function App() {
 
-  const [sourceLanguage, setSourceLanguage] = useState('en');
-  const [targetLanguage, setTargetLanguage] = useState('fr');
+  const [sourceLanguage, setSourceLanguage] = useState('en-US');
+  const [targetLanguage, setTargetLanguage] = useState('fr-FR');
   console.log(sourceLanguage, targetLanguage)
   const [originalText, setOriginalText] = useState('');
   const [translatedText, setTranslatedText] = useState('');
@@ -46,6 +46,7 @@ export default function App() {
           <TextArea
             type={'sourse'}
             handleSource={handleSource}
+            selectedLanguage={sourceLanguage}
             usedText={originalText}
           />
           <TranslateButton
@@ -67,6 +68,7 @@ export default function App() {
           />
           <TextArea
             type={'target'}
+            selectedLanguage={targetLanguage}
             usedText={translatedText}
           />
         </div>

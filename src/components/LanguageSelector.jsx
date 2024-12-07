@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from 'react'
 
 export default function LanguageSelector({ type, languages, selectedLanguage, handleLanguageChange, handleMoveLanguage }) {
 	const [filteredText, setFilteredText] = useState('');
-	const [activeLanguage, setActiveLanguage] = useState(type === 'sourse' ? 'en' : 'fr');
 
 	const dropdownRef = useRef(null);
 	const buttonRef = useRef(null);
@@ -21,7 +20,6 @@ export default function LanguageSelector({ type, languages, selectedLanguage, ha
 	}
 
 	const handleButtonClick = (buttonId, languageCode, type) => {
-		setActiveLanguage(buttonId);
 		handleLanguageChange(languageCode, type);
 	};
 
@@ -69,13 +67,13 @@ export default function LanguageSelector({ type, languages, selectedLanguage, ha
 						<button className={`language-btn ${selectedLanguage === 'Autodetect' ? 'active' : ''}`} onClick={() => handleButtonClick('Autodetect', 'Autodetect', type)}>Detect Language</button>
 					</li>}
 					<li className='language-item'>
-						<button className={`language-btn ${selectedLanguage === 'en' ? 'active' : ''}`} onClick={() => handleButtonClick('en', 'en', type)}>English</button>
+						<button className={`language-btn ${selectedLanguage === 'en-US' ? 'active' : ''}`} onClick={() => handleButtonClick('en-US', 'en-US', type)}>English</button>
 					</li>
 					<li className='language-item'>
-						<button className={`language-btn ${selectedLanguage === 'fr' ? 'active' : ''}`} onClick={() => handleButtonClick('fr', 'fr', type)}>French</button>
+						<button className={`language-btn ${selectedLanguage === 'fr-FR' ? 'active' : ''}`} onClick={() => handleButtonClick('fr-FR', 'fr-FR', type)}>French</button>
 					</li>
 					<li className='language-item'>
-						<button className={`language-btn dropdown-btn ${selectedLanguage !== 'Autodetect' && selectedLanguage !== 'en' && selectedLanguage !== 'fr' ? 'active' : ''}`} ref={buttonRef}>{languages.find(language => language.code === selectedLanguage)?.language}</button>
+						<button className={`language-btn dropdown-btn ${selectedLanguage !== 'Autodetect' && selectedLanguage !== 'en-US' && selectedLanguage !== 'fr-FR' ? 'active' : ''}`} ref={buttonRef}>{languages.find(language => language.code === selectedLanguage)?.language}</button>
 					</li>
 				</ul>
 				<ul ref={listRef} className='dropdown-list'>
