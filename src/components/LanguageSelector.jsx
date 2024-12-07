@@ -1,4 +1,3 @@
-import { use } from 'react';
 import '../styles/LanguageSelector.css'
 import { useState, useEffect, useRef } from 'react'
 
@@ -19,7 +18,7 @@ export default function LanguageSelector({ type, languages, selectedLanguage, ha
 		setFilteredText(value)
 	}
 
-	const handleButtonClick = (buttonId, languageCode, type) => {
+	const handleButtonClick = (languageCode, type) => {
 		handleLanguageChange(languageCode, type);
 	};
 
