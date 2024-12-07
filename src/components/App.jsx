@@ -18,7 +18,7 @@ export default function App() {
     const value = event.target.value;
 
     setOriginalText(value);
-  }
+  };
 
   const handleLanguageChange = (language, type) => {
     if (type === 'sourse') {
@@ -26,6 +26,11 @@ export default function App() {
     } else if (type === 'target') {
       setTargetLanguage(language);
     }
+  };
+
+  const handleMoveLanguage = () => {
+    setSourceLanguage(targetLanguage);
+    setTargetLanguage(sourceLanguage);
   };
 
   return (
@@ -59,6 +64,7 @@ export default function App() {
             languages={languages}
             selectedLanguage={targetLanguage}
             handleLanguageChange={handleLanguageChange}
+            handleMoveLanguage={handleMoveLanguage}
           />
           <TextArea
             canWrite={false}
