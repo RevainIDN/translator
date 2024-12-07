@@ -63,13 +63,13 @@ export default function LanguageSelector({ type, languages, selectedLanguage, ha
 			<div ref={dropdownRef} className='language-selector'>
 				<ul className='language-list'>
 					{type === 'sourse' && <li className='language-btn'>
-						<button className={`language-btn ${selectedLanguage === 'Autodetect' ? 'active' : ''}`} onClick={() => handleButtonClick('Autodetect', 'Autodetect', type)}>Detect Language</button>
+						<button className={`language-btn ${selectedLanguage === 'Autodetect' ? 'active' : ''}`} onClick={() => handleButtonClick('Autodetect', type)}>Detect Language</button>
 					</li>}
 					<li className='language-item'>
-						<button className={`language-btn ${selectedLanguage === 'en-US' ? 'active' : ''}`} onClick={() => handleButtonClick('en-US', 'en-US', type)}>English</button>
+						<button className={`language-btn ${selectedLanguage === 'en-US' ? 'active' : ''}`} onClick={() => handleButtonClick('en-US', type)}>English</button>
 					</li>
 					<li className='language-item'>
-						<button className={`language-btn ${selectedLanguage === 'fr-FR' ? 'active' : ''}`} onClick={() => handleButtonClick('fr-FR', 'fr-FR', type)}>French</button>
+						<button className={`language-btn ${selectedLanguage === 'fr-FR' ? 'active' : ''}`} onClick={() => handleButtonClick('fr-FR', type)}>French</button>
 					</li>
 					<li className='language-item'>
 						<button className={`language-btn dropdown-btn ${selectedLanguage !== 'Autodetect' && selectedLanguage !== 'en-US' && selectedLanguage !== 'fr-FR' ? 'active' : ''}`} ref={buttonRef}>{languages.find(language => language.code === selectedLanguage)?.language}</button>
