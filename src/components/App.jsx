@@ -44,10 +44,9 @@ export default function App() {
             handleLanguageChange={handleLanguageChange}
           />
           <TextArea
-            canWrite={true}
-            numLetters={true}
+            type={'sourse'}
             handleSource={handleSource}
-            originalText={originalText.length}
+            usedText={originalText}
           />
           <TranslateButton
             originalText={originalText}
@@ -67,8 +66,8 @@ export default function App() {
             handleMoveLanguage={handleMoveLanguage}
           />
           <TextArea
-            canWrite={false}
-            translatedText={translatedText}
+            type={'target'}
+            usedText={translatedText}
           />
         </div>
       </div>

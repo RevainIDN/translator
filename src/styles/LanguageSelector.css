@@ -124,3 +124,7 @@
 .reverse-btn {
 	background: center / 24px no-repeat url(/Horizontal_top_left_main.svg);
 }
+
+.option-btn:active {
+	transform: scale(90%);
+}
