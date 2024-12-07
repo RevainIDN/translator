@@ -10,14 +10,14 @@ export default function App() {
   const [sourceLanguage, setSourceLanguage] = useState('en');
   const [targetLanguage, setTargetLanguage] = useState('fr');
   console.log(sourceLanguage, targetLanguage)
-  const [originatlText, setOriginatlText] = useState('');
+  const [originalText, setOriginalText] = useState('');
   const [translatedText, setTranslatedText] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSource = (event) => {
     const value = event.target.value;
 
-    setOriginatlText(value);
+    setOriginalText(value);
   }
 
   const handleLanguageChange = (language, type) => {
@@ -36,20 +36,21 @@ export default function App() {
             type={'sourse'}
             languages={languages}
             selectedLanguage={sourceLanguage}
-            setSelecteedLanguage={setSourceLanguage}
             handleLanguageChange={handleLanguageChange}
           />
           <TextArea
             canWrite={true}
             numLetters={true}
             handleSource={handleSource}
-            originatlText={originatlText.length}
+            originalText={originalText.length}
           />
           <TranslateButton
-            originatlText={originatlText}
+            originalText={originalText}
             languages={languages}
             setTranslatedText={setTranslatedText}
             translatedText={translatedText}
+            sourceLanguage={sourceLanguage}
+            targetLanguage={targetLanguage}
           />
         </div>
         <div className='area translatedArea'>
@@ -57,7 +58,6 @@ export default function App() {
             type={'target'}
             languages={languages}
             selectedLanguage={targetLanguage}
-            setSelecteedLanguage={setTargetLanguage}
             handleLanguageChange={handleLanguageChange}
           />
           <TextArea

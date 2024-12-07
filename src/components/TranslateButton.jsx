@@ -1,8 +1,8 @@
 import '../styles/TranslateButton.css'
 
-export default function TranslateButton({ originatlText, translatedText, setTranslatedText, languages }) {
-	const encodedText = encodeURIComponent(originatlText);
-	const apiUrl = `https://api.mymemory.translated.net/get?q=${encodedText}&langpair=${languages[0].code}|${languages[3].code}`;
+export default function TranslateButton({ originalText, translatedText, setTranslatedText, languages, sourceLanguage, targetLanguage }) {
+	const encodedText = encodeURIComponent(originalText);
+	const apiUrl = `https://api.mymemory.translated.net/get?q=${encodedText}&langpair=${sourceLanguage}|${targetLanguage}`;
 
 	const translateText = () => {
 		fetch(apiUrl)

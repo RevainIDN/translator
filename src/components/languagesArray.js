@@ -39,7 +39,7 @@ const languages = [
 	{ id: 38, language: 'Slovenian', code: 'sl' },
 	{ id: 39, language: 'Filipino', code: 'tl' },
 	{ id: 40, language: 'Persian', code: 'fa' },
-	{ id: 41, language: 'Select Language', code: 'auto' }
+	{ id: 41, language: 'Select Language', code: 'Autodetect' }
 ];
 
 export default languages;

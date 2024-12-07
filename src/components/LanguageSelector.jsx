@@ -2,7 +2,7 @@ import { use } from 'react';
 import '../styles/LanguageSelector.css'
 import { useState, useEffect, useRef } from 'react'
 
-export default function LanguageSelector({ type, languages, selectedLanguage, setSelecteedLanguage, handleLanguageChange }) {
+export default function LanguageSelector({ type, languages, selectedLanguage, handleLanguageChange }) {
 	const [filteredText, setFilteredText] = useState('');
 	const [activeLanguage, setActiveLanguage] = useState(type === 'sourse' ? 'en' : 'fr');
 
@@ -65,7 +65,7 @@ export default function LanguageSelector({ type, languages, selectedLanguage, se
 		<>
 			<div ref={dropdownRef} className='language-selector'>
 				<ul className='language-list'>
-					{type === 'sourse' && <li className='language-btn'><button className={`language-btn ${activeLanguage === 'auto' ? 'active' : ''}`} onClick={() => handleButtonClick('auto', 'auto', type)}>Detect Language</button></li>}
+					{type === 'sourse' && <li className='language-btn'><button className={`language-btn ${activeLanguage === 'Autodetect' ? 'active' : ''}`} onClick={() => handleButtonClick('Autodetect', 'Autodetect', type)}>Detect Language</button></li>}
 					<li className='language-item'><button className={`language-btn ${activeLanguage === 'en' ? 'active' : ''}`} onClick={() => handleButtonClick('en', 'en', type)}>English</button></li>
 					<li className='language-item'><button className={`language-btn ${activeLanguage === 'fr' ? 'active' : ''}`} onClick={() => handleButtonClick('fr', 'fr', type)}>French</button></li>
 					<li className='language-item'><button className='language-btn dropdown-btn' ref={buttonRef}>{languages.find(language => language.code === selectedLanguage)?.language}</button></li>
